@@ -1,27 +1,113 @@
-# AberturaDeEmpresa
+# Abertura de Empresas
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.10.
+Projeto desenvolvido como parte de um case técnico, utilizando Angular 16 com integração a uma API fake para simular o fluxo de solicitação de abertura de empresas.
 
-## Development server
+Repositório oficial: [https://github.com/GustavoHLC/Abertura-De-Empresa](https://github.com/GustavoHLC/Abertura-De-Empresa)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+---
 
-## Code scaffolding
+## Tecnologias Utilizadas
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- [Angular 16](https://angular.io/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Bootstrap 5](https://getbootstrap.com/)
+- [ngx-bootstrap](https://valor-software.com/ngx-bootstrap/#/)
+- [json-server](https://github.com/typicode/json-server)
+- [IBGE API](https://servicodados.ibge.gov.br/api/v1/localidades/estados)
 
-## Build
+---
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Requisitos
 
-## Running unit tests
+Antes de começar, certifique-se de ter instalado:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+| Requisito       | Versão recomendada  |
+|------------------|---------------------|
+| **Node.js**      | `v20.16.0`          |
+| **NPM**          | `v10+`              |
+| **Angular CLI**  | `v16.2.10`          |
 
-## Running end-to-end tests
+Para instalar a Angular CLI:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```bash
+npm install -g @angular/cli@16
+```
 
-## Further help
+---
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Como rodar o projeto localmente
+
+### 1. Clone o repositório
+
+```bash
+git clone https://github.com/GustavoHLC/Abertura-De-Empresa.git
+cd Abertura-De-Empresa
+```
+
+### 2. Instale as dependências
+
+```bash
+npm install
+```
+
+### 3. Inicie a API fake (json-server)
+
+```bash
+npm run mock
+```
+
+Isso iniciará a API em:  
+`http://localhost:3000`
+
+#### Endpoints disponíveis:
+
+| Endpoint                          | Descrição                     |
+|----------------------------------|-------------------------------|
+| `GET /empresas`                  | Lista todas as empresas       |
+| `GET /empresas/:id`              | Visualiza empresa por ID      |
+| `POST /empresas`                 | Cadastra uma nova empresa     |
+| `PUT /empresas/:id`              | Atualiza uma empresa          |
+| `GET /entidade-registro`         | Lista entidades               |
+| `GET /localidades/estados`       | Lista de estados via IBGE     |
+
+> O arquivo `db.json` está localizado em `mocks/db.json`.
+
+### 4. Rode a aplicação Angular
+
+```bash
+npm start
+```
+
+A aplicação estará disponível em:  
+ `http://localhost:4200`
+
+---
+
+## Estrutura Inicial
+
+```
+Abertura-De-Empresa/
+├── src/
+│   ├── app/                  # Componentes e lógica da aplicação
+│   ├── environments/         # Configuração de ambiente
+│   └── styles.css            # Estilo global (inclui Bootstrap)
+├── mocks/
+│   └── db.json               # API fake usada pelo json-server
+├── angular.json              # Configuração do Angular CLI
+├── package.json              # Dependências e scripts
+```
+
+---
+
+## Scripts úteis
+
+| Comando         | Descrição                                   |
+|----------------|----------------------------------------------|
+| `npm start`     | Inicia a aplicação Angular (`ng serve`)      |
+| `npm run mock`  | Inicia a API fake usando `json-server`       |
+
+---
+
+## Estilo
+
+O projeto utiliza **Bootstrap 5** para a base visual e **ngx-bootstrap** para componentes reutilizáveis como modais, tooltips e datepickers.

@@ -1,0 +1,64 @@
+{
+  "empresas": [
+    {
+      "solicitante": {
+        "ds_responsavel": "Catarina Ester da Cruz",
+        "nu_cpf": "83812080176",
+        "date_nascimento": "1984-04-20"
+      },
+      "empresa": {
+        "ds_nome_fantasia": "Diogo e Marcelo Filmagens Ltda",
+        "co_entidade_registro": 104306,
+        "endereco": {
+          "co_cep": 14022094,
+          "ds_logradouro": "Rua Alcino Jacinto Ramos",
+          "co_numero": "233",
+          "ds_complemento": null,
+          "ds_bairro": "Quinta da Primavera",
+          "ds_municipio": "Ribeirão Preto",
+          "co_uf": "29"
+        }
+      },
+      "id": 1
+    },
+    {
+      "solicitante": {
+        "ds_responsavel": "Ryan Vinicius Nicolas Almeida",
+        "nu_cpf": "02494725976",
+        "date_nascimento": "1990-09-30"
+      },
+      "empresa": {
+        "ds_nome_fantasia": "Isabela e Benício Transportes Ltda",
+        "co_entidade_registro": 104308,
+        "endereco": {
+          "co_cep": 14022094,
+          "ds_logradouro": "Rua Francisco Nunes Villela",
+          "co_numero": "233",
+          "ds_complemento": "Apt 304",
+          "ds_bairro": "Vila dos Comerciários I",
+          "ds_municipio": "Ribeirão Preto",
+          "co_uf": "28"
+        }
+      },
+      "id": 2
+    }
+  ],
+  "entidade-registro": [
+    {
+      "key": 104305,
+      "value": "Cartório"
+    },
+    {
+      "key": 104306,
+      "value": "Junta Comercial"
+    },
+    {
+      "key": 104308,
+      "value": "OAB"
+    },
+    {
+      "key": 104309,
+      "value": "RFB"
+    }
+  ]
+}
