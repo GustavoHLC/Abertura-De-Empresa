@@ -1,24 +1,19 @@
 <div class="container-fluid page-container">
     <div class="row">
-        <!-- Coluna da listagem -->
         <div class="col-md-5 listagem-scroll">
             <ng-container *ngIf="empresas.length > 0; else nenhumaEmpresaCadastrada">
                 <div class="card mb-3" *ngFor="let empresa of empresas">
                     <div class="card-body d-flex flex-wrap justify-content-between align-items-center gap-2 p-3">
-                        <!-- Avatar + nome -->
                         <div class="d-flex align-items-center flex-grow-1 min-width-0">
                             <div
                                 class="avatar-placeholder me-3 d-flex justify-content-center align-items-center flex-shrink-0">
                                 <i class="bi bi-person-fill"></i>
                             </div>
-                            <!-- Texto com truncamento -->
                             <div class="text-truncate w-100">
                                 <div class="fw-bold text-truncate">{{ empresa.solicitante?.ds_responsavel }}</div>
                                 <small class="text-muted text-truncate">{{ empresa.empresa?.ds_nome_fantasia }}</small>
                             </div>
                         </div>
-
-                        <!-- Botão -->
                         <div class="flex-shrink-0">
                             <button class="btn btn-primary btn-sm fw-bold d-flex align-items-center gap-1"
                                 (click)="selecionarEmpresa(empresa)">
@@ -28,9 +23,7 @@
                         </div>
                     </div>
                 </div>
-
             </ng-container>
-
             <ng-template #nenhumaEmpresaCadastrada>
                 <div class="text-center text-muted py-5 px-3">
                     <i class="bi bi-folder-x mb-3" style="font-size: 2rem;"></i>
@@ -40,14 +33,11 @@
                 </div>
             </ng-template>
         </div>
-
-        <!-- Linha separadora com seta -->
         <div
             class="col-md-1 d-none d-md-flex justify-content-center align-items-center position-relative separator-container">
             <div class="vertical-line"></div>
             <div class="arrow-icon">&gt;</div>
         </div>
-        <!-- Coluna de detalhes -->
         <div class="col-md-6 d-none d-md-block">
             <ng-container *ngIf="empresaSelecionada; else selecioneUmaEmpresa">
                 <div class="d-flex justify-content-between align-items-center mb-5">
@@ -85,8 +75,6 @@
                 </div>
             </ng-template>
         </div>
-
-        <!-- Modal para detalhes -->
         <div class="modal fade" id="detalhesModal" tabindex="-1" aria-labelledby="detalhesModalLabel"
             aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered">
