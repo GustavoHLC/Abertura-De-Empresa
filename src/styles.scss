@@ -1,1 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+    overflow: hidden;
+    height: 100%;
+    margin: 0;
+    font-family: 'arial', sans-serif;
+}
+
+.page-container {
+    padding: 32px 24px 0 24px;
+}

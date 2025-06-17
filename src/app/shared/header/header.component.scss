@@ -1,0 +1,23 @@
+.header-custom {
+    background-color: #e2e2e2;
+    padding: 24px 32px !important;
+}
+
+img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #0075cd;
+    object-fit: contain;
+    padding: 5px;
+}
+
+h2 {
+    color: #0074cdda;
+}
+
+@media (max-width: 768px) {
+    .custom-logo {
+        margin-bottom: 12px;
+    }
+}
