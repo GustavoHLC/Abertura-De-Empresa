@@ -1,0 +1,170 @@
+<form [formGroup]="empresaForm">
+  <div class="container my-4 scroll-container">
+    <div class="row">
+      <div class="col-md-6 pe-md-5 custom-border-end mb-5 mb-md-0">
+        <h4 class="fw-bold mb-4">Dados do solicitante</h4>
+        <div formGroupName="solicitante">
+          <div class="mb-3">
+            <label class="form-label">Responsável pela empresa*</label>
+            <input type="text" class="form-control" formControlName="ds_responsavel" [ngClass]="{
+                  'is-invalid': empresaForm.get('solicitante.ds_responsavel')?.touched &&
+                  empresaForm.get('solicitante.ds_responsavel')?.errors?.['required']}" />
+            <div class="invalid-feedback m-0">
+              <ng-container *ngIf="empresaForm.get('solicitante.ds_responsavel')?.errors as errors">
+                <span *ngIf="errors['required']">Campo obrigatório.</span>
+              </ng-container>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">CPF*</label>
+            <input type="text" class="form-control" formControlName="nu_cpf" mask="000.000.000-00" [ngClass]="{
+                  'is-invalid': empresaForm.get('solicitante.nu_cpf')?.touched &&
+                  empresaForm.get('solicitante.nu_cpf')?.errors?.['required']}" />
+            <div class="invalid-feedback m-0">
+              <ng-container *ngIf="empresaForm.get('solicitante.nu_cpf')?.errors as errors">
+                <span *ngIf="errors['required']">Campo obrigatório.</span>
+              </ng-container>
+            </div>
+          </div>
+          <div class="mb-5 position-relative" style="max-width: 250px;">
+            <label for="dateNascimento" class="form-label">Data de nascimento*</label>
+            <input type="text" id="dateNascimento" class="form-control pe-5" [ngClass]="{'is-invalid': empresaForm.get('solicitante.date_nascimento')?.touched &&
+                empresaForm.get('solicitante.date_nascimento')?.invalid}" formControlName="date_nascimento"
+              mask="00/00/0000" placeholder="dd/mm/aaaa" [dropSpecialCharacters]="false" />
+            <div id="dateNascimentoFeedback" class="invalid-feedback m-0">
+              <ng-container *ngIf="empresaForm.get('solicitante.date_nascimento')?.errors as errors">
+                <span *ngIf="errors['required']">Campo obrigatório.</span>
+                <span *ngIf="errors['dataInvalida']">Data inválida.</span>
+                <span *ngIf="errors['menorDeIdade']">É necessário ter pelo menos 18 anos.</span>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+        <h4 class="fw-bold mt-4">Dados da empresa</h4>
+        <div formGroupName="empresa">
+          <div class="mb-4">
+            <label class="form-label">Nome fantasia*</label>
+            <input type="text" class="form-control" formControlName="ds_nome_fantasia" [ngClass]="{
+                  'is-invalid': empresaForm.get('empresa.ds_nome_fantasia')?.touched &&
+                  empresaForm.get('empresa.ds_nome_fantasia')?.errors?.['required']}" />
+            <div class="invalid-feedback m-0">
+              <ng-container *ngIf="empresaForm.get('empresa.ds_nome_fantasia')?.errors as errors">
+                <span *ngIf="errors['required']">Campo obrigatório.</span>
+              </ng-container>
+            </div>
+          </div>
+          <div class="mb-4">
+            <label class="form-label d-block">Escolha sua entidade de registro*</label>
+            <div *ngFor="let entidade of entidades">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input custom-circle-checkbox" type="checkbox" [value]="entidade.key"
+                  [checked]="empresaForm.get('empresa.co_entidade_registro')?.value?.includes(entidade.key)"
+                  (change)="onEntidadeChange($event)" />
+                <label class="form-check-label mb-2">{{ entidade.value }}</label>
+              </div>
+            </div>
+            <div class="invalid-feedback m-0 d-block"
+              *ngIf="empresaForm.get('empresa.co_entidade_registro')?.touched && empresaForm.get('empresa.co_entidade_registro')?.errors?.['required']">
+              Campo obrigatório.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 ps-md-5">
+        <h4 class="fw-bold  mb-4">Endereço da empresa</h4>
+        <div formGroupName="empresa">
+          <div formGroupName="endereco">
+            <div class="mb-3">
+              <label class="form-label">CEP*</label>
+              <input type="text" class="form-control" formControlName="co_cep" mask="00000-000" [ngClass]="{
+                  'is-invalid': empresaForm.get('empresa.endereco.co_cep')?.touched &&
+                  empresaForm.get('empresa.endereco.co_cep')?.errors?.['required']}" />
+              <div class="invalid-feedback m-0">
+                <ng-container *ngIf="empresaForm.get('empresa.endereco.co_cep')?.errors as errors">
+                  <span *ngIf="errors['required']">Campo obrigatório.</span>
+                </ng-container>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Endereço*</label>
+              <input type="text" class="form-control" formControlName="ds_logradouro" [ngClass]="{
+                  'is-invalid': empresaForm.get('empresa.endereco.ds_logradouro')?.touched &&
+                  empresaForm.get('empresa.endereco.ds_logradouro')?.errors?.['required']}" />
+              <div class="invalid-feedback m-0">
+                <ng-container *ngIf="empresaForm.get('empresa.endereco.ds_logradouro')?.errors as errors">
+                  <span *ngIf="errors['required']">Campo obrigatório.</span>
+                </ng-container>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Número*</label>
+              <input type="text" class="form-control" formControlName="co_numero"
+                [class.is-invalid]="empresaForm.get('empresa.endereco.co_numero')?.invalid && empresaForm.get('empresa.endereco.co_numero')?.touched" />
+              <div class="invalid-feedback m-0">
+                <ng-container *ngIf="empresaForm.get('empresa.endereco.co_numero')?.errors as errors">
+                  <span *ngIf="errors['required']">Campo obrigatório.</span>
+                </ng-container>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Complemento</label>
+              <input type="text" class="form-control" formControlName="ds_complemento" />
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Bairro*</label>
+              <input type="text" class="form-control" formControlName="ds_bairro" [ngClass]="{
+                  'is-invalid': empresaForm.get('empresa.endereco.ds_bairro')?.touched &&
+                  empresaForm.get('empresa.endereco.ds_bairro')?.errors?.['required']}" />
+              <div class="invalid-feedback m-0">
+                <ng-container *ngIf="empresaForm.get('empresa.endereco.ds_bairro')?.errors as errors">
+                  <span *ngIf="errors['required']">Campo obrigatório.</span>
+                </ng-container>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Cidade*</label>
+              <input type="text" class="form-control" formControlName="ds_municipio" [ngClass]="{
+                  'is-invalid': empresaForm.get('empresa.endereco.ds_municipio')?.touched &&
+                  empresaForm.get('empresa.endereco.ds_municipio')?.errors?.['required']}" />
+              <div class="invalid-feedback m-0">
+                <ng-container *ngIf="empresaForm.get('empresa.endereco.ds_municipio')?.errors as errors">
+                  <span *ngIf="errors['required']">Campo obrigatório.</span>
+                </ng-container>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Estado*</label>
+              <select class="form-select" formControlName="co_uf" [ngClass]="{
+                  'is-invalid': empresaForm.get('empresa.endereco.co_uf')?.touched &&
+                  empresaForm.get('empresa.endereco.co_uf')?.errors?.['required']}">
+                <option *ngFor="let estado of estados" [value]="estado.id">{{ estado.nome }}</option>
+              </select>
+              <div class="invalid-feedback m-0">
+                <ng-container *ngIf="empresaForm.get('empresa.endereco.co_uf')?.errors as errors">
+                  <span *ngIf="errors['required']">Campo obrigatório.</span>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="submit-right mt-4">
+          <button class="btn btn-primary fw-bold btn-lg-custom" type="submit" (click)="salvar()">Enviar</button>
+        </div>
+      </div>
+    </div>
+    <div class="modal-backdrop fade show" *ngIf="mostrarModal" style="z-index: 1050;"></div>
+    <div class="custom-modal" *ngIf="mostrarModal">
+      <div class="modal-content text-center p-4 position-relative">
+        <button type="button" class="btn-close position-absolute top-0 end-0 m-3" (click)="fecharModal()"></button>
+        <i class="bi bi-check2-circle text-success mb-3" style="font-size: 12rem;"></i>
+        <h5 class="fw-bold mb-3">{{ textoModal }}</h5>
+        <div class="d-grid gap-2 col-10 mx-auto mt-4">
+          <button class="btn btn-outline-primary" [routerLink]="['']">Consultar empresas cadastradas</button>
+          <button class="btn btn-primary" [routerLink]="['/empresas/novo']">Cadastrar nova empresa</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+<app-toast #toast></app-toast>

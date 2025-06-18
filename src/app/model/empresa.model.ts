@@ -7,7 +7,7 @@ export class Empresa {
     }
     empresa?: {
         ds_nome_fantasia: string;
-        co_entidade_registro: number;
+        co_entidade_registro: number[];
         endereco: {
             co_cep: number;
             ds_logradouro: string;
@@ -18,4 +18,9 @@ export class Empresa {
             co_uf: string;
         }
     }
+}
+
+export class EntidadeRegistro {
+    key!: number;
+    value!: string;
 }

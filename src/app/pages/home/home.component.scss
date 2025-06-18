@@ -1,7 +1,7 @@
 .listagem-scroll {
-    max-height: calc(100vh - 100px);
-    overflow-y: auto;
-    padding-right: 10px;
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+  padding-right: 10px;
 }
 
 .text-truncate {
@@ -11,57 +11,57 @@
 }
 
 .avatar-placeholder {
-    width: 50px;
-    height: 50px;
-    background-color: #ccc;
-    border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  background-color: #ccc;
+  border-radius: 50%;
 
-    i {
-        font-size: 24px;
-        color: white;
-    }
+  i {
+    font-size: 24px;
+    color: white;
+  }
 }
 
 .separator-container {
-    height: 84vh;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    position: relative;
+  height: 84vh;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  position: relative;
 }
 
 .vertical-line {
-    width: 2px;
-    height: 100%;
-    background-color: #339af0;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
+  width: 2px;
+  height: 100%;
+  background-color: #339af0;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .arrow-icon {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #339af0;
-    background-color: white;
-    padding: 2px 4px;
-    z-index: 1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #339af0;
+  background-color: white;
+  padding: 2px 4px;
+  z-index: 1;
 }
 
 .btn-visualizar {
-    width: 160px;
-    height: 40px;
-    margin-right: 40px;
-    font-size: 18px;
-    font-weight: 500;
+  width: 160px;
+  height: 40px;
+  margin-right: 40px;
+  font-size: 18px;
+  font-weight: 500;
 }
 
 h3 {
-    color: #666666;
+  color: #666666;
 }
 
 @media (max-width: 767px) {

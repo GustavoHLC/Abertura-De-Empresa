@@ -8,6 +8,10 @@ import { HeaderComponent } from './shared/header/header.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CepMaskPipe } from './pipes/cep.mask.pipe';
 import { CpfMaskPipe } from './pipes/cpf-mask.pipe';
+import { EmpresaComponent } from './pages/empresa/empresa.component';
+import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
+import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 
 @NgModule({
   declarations: [
@@ -16,14 +20,18 @@ import { CpfMaskPipe } from './pipes/cpf-mask.pipe';
     ToastComponent,
     HeaderComponent,
     CpfMaskPipe,
-    CepMaskPipe
+    CepMaskPipe,
+    EmpresaComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    CommonModule,
+    ReactiveFormsModule,
+    NgxMaskDirective
   ],
-  providers: [],
+  providers: [provideNgxMask()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

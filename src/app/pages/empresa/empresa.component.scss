@@ -1,0 +1,77 @@
+.custom-circle-checkbox {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: white;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    margin-right: 6px;
+
+    &:checked {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+    &:focus {
+        outline: none;
+        box-shadow: none;
+    }
+}
+
+h4 {
+    color: #868686;
+}
+
+label {
+    font-weight: 600;
+}
+
+.submit-right {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn-lg-custom {
+    padding: 0.75rem 2rem;
+    font-size: 1.1rem;
+    border-radius: 0.375rem;
+}
+
+.scroll-container {
+    max-height: calc(100vh - 2rem);
+    overflow-y: auto;
+    padding-bottom: 9rem;
+}
+
+.custom-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1055;
+    background-color: white;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+}
+
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #00000066;
+}
+
+
+@media (min-width: 768px) {
+    .custom-border-end {
+        border-right: 2px solid #339af0;
+    }
+}
