@@ -42,7 +42,7 @@
             <ng-container *ngIf="empresaSelecionada; else selecioneUmaEmpresa">
                 <div class="d-flex justify-content-between align-items-center mb-5">
                     <h3 class="mb-0 fw-semibold">Detalhes do pedido</h3>
-                    <button class="btn btn-secondary btn-sm d-flex align-items-center">
+                    <button class="btn btn-secondary btn-sm d-flex align-items-center" [routerLink]="['/empresas', empresaSelecionada.id, 'editar']">
                         <span class="material-symbols-outlined me-1" style="font-size: 20px;">
                             person_edit
                         </span>
@@ -92,7 +92,7 @@
                                 </div>
                                 <h5 class="mb-0">{{ empresaSelecionada.empresa?.ds_nome_fantasia }}</h5>
                             </div>
-                            <button class="btn btn-secondary btn-sm d-flex align-items-center">
+                            <button class="btn btn-secondary btn-sm d-flex align-items-center" [routerLink]="['/empresas', empresaSelecionada.id, 'editar']">
                                 <span class="material-symbols-outlined me-1" style="font-size: 20px;">
                                     person_edit
                                 </span>

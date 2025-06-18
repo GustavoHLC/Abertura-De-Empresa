@@ -23,27 +23,23 @@ export class HomeComponent {
   carregarEmpresas(): void {
     this.empresaService.getEmpresas().subscribe({
       next: (dados) => {
-        console.log('Empresas carregadas:', dados);
         this.empresas = dados;
       },
-      error: (err) => {
+      error: () => {
         this.toast.showToast('Erro ao carregar empresas', 'danger')
-        console.error(err);
       }
     });
   }
 
-
-selecionarEmpresa(empresa: Empresa): void {
-  this.empresaSelecionada = empresa;
-
-  if (window.innerWidth < 768) {
-    const modalElement = document.getElementById('detalhesModal');
-    if (modalElement) {
-      const modal = new bootstrap.Modal(modalElement);
-      modal.show();
+  selecionarEmpresa(empresa: Empresa): void {
+    this.empresaSelecionada = empresa;
+    if (window.innerWidth < 768) {
+      const modalElement = document.getElementById('detalhesModal');
+      if (modalElement) {
+        const modal = new bootstrap.Modal(modalElement);
+        modal.show();
+      }
     }
   }
-}
 
 }
