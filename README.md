@@ -27,10 +27,39 @@ Antes de começar, certifique-se de ter instalado:
 | **NPM**          | `v10+`              |
 | **Angular CLI**  | `v16.2.10`          |
 
-Para instalar a Angular CLI:
+### Como instalar
+
+#### 📦 Node.js e NPM
+
+1. Acesse o site oficial: [https://nodejs.org](https://nodejs.org)
+2. Baixe e instale a **versão LTS recomendada**.
+3. Após a instalação, verifique as versões com os comandos:
+
+```bash
+node -v
+# Deve exibir algo como: v20.16.0
+
+npm -v
+# Deve exibir algo como: 10.x.x
+```
+
+> **Importante:** O NPM já é instalado junto com o Node.js.
+
+---
+
+#### ⚙️ Angular CLI
+
+Após instalar o Node.js e o NPM, instale a Angular CLI com:
 
 ```bash
 npm install -g @angular/cli@16
+```
+
+Para verificar se foi instalado corretamente:
+
+```bash
+ng version
+# Confirme que aparece a versão 16.2.10 ou similar
 ```
 
 ---
